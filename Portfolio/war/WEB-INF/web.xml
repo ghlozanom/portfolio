@@ -4,7 +4,45 @@ xmlns="http://java.sun.com/xml/ns/javaee"
 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>
+
+	<!-- Main portfolio servlet -->
+	<servlet>
+	  <servlet-name>PortfolioServlet</servlet-name>
+	  <servlet-class>com.gabloz.portfolio.web.servlet.PortfolioServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>PortfolioServlet</servlet-name>
+	  <url-pattern>/</url-pattern>
+	</servlet-mapping> 
+	
+	<!-- Blob retriever servlet -->  
+	<servlet>
+	  <servlet-name>BlobRetrieverServlet</servlet-name>
+	  <servlet-class>com.gabloz.portfolio.web.servlet.BlobRetrieverServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>BlobRetrieverServlet</servlet-name>
+	  <url-pattern>/getBlobForKey</url-pattern>
+	</servlet-mapping>   
+	
+	<!-- Main image admin servlet -->  
+	<servlet>
+	  <servlet-name>MainImageServlet</servlet-name>
+	  <servlet-class>com.gabloz.portfolio.web.servlet.MainImageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>MainImageServlet</servlet-name>
+	  <url-pattern>/mainImg</url-pattern>
+	</servlet-mapping>	
+
+	<!-- Contact servlet -->  
+	<servlet>
+	  <servlet-name>ContactServlet</servlet-name>
+	  <servlet-class>com.gabloz.portfolio.web.servlet.ContactServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>ContactServlet</servlet-name>
+	  <url-pattern>/contact</url-pattern>
+	</servlet-mapping> 
+
 </web-app>
