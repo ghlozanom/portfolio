@@ -8,7 +8,6 @@ import java.util.logging.Logger;
 
 import com.gabloz.portfolio.common.exceptions.PortfolioBusinessException;
 import com.gabloz.portfolio.model.Image;
-import com.google.appengine.api.blobstore.BlobInfoFactory;
 import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
@@ -96,9 +95,12 @@ public class UserHelper {
 		if(mainImgUpload != null ){
 			List<Key> keysToDelete = new ArrayList<Key>();				
 			BlobKey blobKey = (BlobKey) mainImgUpload.getProperty(GAEConstants.MAIN_IMAG_PROPERTY);
-			Key blobInfoKey = KeyFactory.createKey(
-					BlobInfoFactory.KIND, blobKey.getKeyString());
-			keysToDelete.add(blobInfoKey);
+			//Prevous approach, deleting a blobInfoKey, doesnt work in production server, see
+			//http://stackoverflow.com/questions/16434164/appengine-illegal-key-path-element-type-blobinfo-trying-to-delete-blobstore
+			blobstoreService.delete(blobKey);
+//			Key blobInfoKey = KeyFactory.createKey(
+//					BlobInfoFactory.KIND, blobKey.getKeyString());
+//			keysToDelete.add(blobInfoKey);
 			keysToDelete.add(mainImgUpload.getKey());
 			datastoreService.delete(keysToDelete);
 		}			

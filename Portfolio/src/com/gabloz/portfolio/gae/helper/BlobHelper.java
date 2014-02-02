@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.gabloz.portfolio.common.exceptions.PortfolioBusinessException;
 import com.gabloz.portfolio.common.helper.MessageHelper;
 import com.gabloz.portfolio.web.helper.WebHelper;
+import com.google.appengine.api.blobstore.BlobInfo;
+import com.google.appengine.api.blobstore.BlobInfoFactory;
 import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
@@ -102,14 +104,32 @@ public class BlobHelper {
 	 * @throws PortfolioBusinessException 
 	 */
 	public BlobKey getBlobKey(HttpServletRequest request) throws PortfolioBusinessException {
+
+		
 		Map<String, List<BlobKey>> blobFields = blobstoreService.getUploads(request);
 		List<BlobKey> blobKeys = blobFields.get("upload");
+		
+		
+		BlobstoreService bs = BlobstoreServiceFactory.getBlobstoreService();
+		BlobKey blobKey = blobKeys.get(0);
+		
 		if(blobKeys == null ){
 			//To validate that the user selected a file. If he/she didn't,
-			//an error message is shown			
+			//an error message is shown. UPDATE: this works only local!			
 			throw new PortfolioBusinessException(MessageHelper.NO_IMAGE_UPLOADED);
 		}
-		return blobKeys.get(0);
+		
+		//Previous vaidation doesnt work in the production server, see:
+		//http://stackoverflow.com/questions/9673812/gae-j-blobstore-how-to-determine-if-file-is-not-uploaded
+		final BlobInfo blobInfo = new BlobInfoFactory().loadBlobInfo(blobKey);
+		long size = blobInfo.getSize();
+		if(size == 0){
+			//File was not uploaded
+			bs.delete(blobKey);
+			throw new PortfolioBusinessException(MessageHelper.NO_IMAGE_UPLOADED);
+		}			
+		
+		return blobKey;
 	}	
 
 }
