@@ -68,7 +68,7 @@ public class EMailHelper {
 			//Confirmation message
 			String confirmationMessageBody = "Dear " + contactMessage.getName() + ":" +
 			"\n\nThank you for contacting us. In short, we will answer to your message." +
-			"\n\nKind regards,\n\nThe Protfolio Team.";
+			"\n\nKind regards,\n\nThe Portfolio Team.";
 			
 			message.addRecipient(Message.RecipientType.TO,
 									new InternetAddress(contactMessage.getEmail()) );
