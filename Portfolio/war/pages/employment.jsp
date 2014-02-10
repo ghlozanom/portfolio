@@ -78,9 +78,15 @@
         <div>
         	<ul>
         		<li>
-        			Migration of an application for managing credit cards, debit cards and revolving credits from Oracle Forms 
-        			technology to a J2EE environment, including a web front-end and business components.
+        			Analysis and elicitation of the requirements with clients, mainly the Ministry of 
+        			Education of Colombia.
+				</li>        	
+        		<li>
+        			Development, testing and maintenance of JEE applications using the Tapestry Web Framework, 
+        			HTML and CSS, Hibernate, Oracle database, TOAD, JUnit, Eclipse IDE and SVN. These 
+        			appications run in OC4J application server.
 				</li>
+				
         	</ul>
         </div>
       </div>

@@ -49,7 +49,9 @@ public class WebHelper {
 	public static final String SUCCESS_MESSAGE = "successMessage";
 
 	public static final String CONTACT_PATH_VALUE = "/contact";
-	public static final String CONTACT_PATH = "contactPath";		
+	public static final String CONTACT_PATH = "contactPath";
+
+	public static final String BLOG_PAGE = "/pages/blog.jsp";
 	
 	/**
 	 * Returns a unique instance of this class (Singleton pattern)

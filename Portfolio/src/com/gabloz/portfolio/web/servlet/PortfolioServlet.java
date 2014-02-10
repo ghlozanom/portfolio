@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.gabloz.portfolio.common.helper.MessageHelper;
 import com.gabloz.portfolio.gae.helper.BlobHelper;
-import com.gabloz.portfolio.gae.helper.UserHelper;
 import com.gabloz.portfolio.web.helper.WebHelper;
+import com.gabloz.portfolio.web.helper.WebImageHelper;
 
 /**
  * Servlet for the main path ("/") of the portfolio app.
@@ -40,7 +40,7 @@ public class PortfolioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		logger.log(Level.INFO, "doGet()");
+		logger.log(Level.INFO, "Portfolio servlet doGet()");
 		
 		checkErrorMessages(request);
 		checkConfirmationMessages(request);			
@@ -48,17 +48,13 @@ public class PortfolioServlet extends HttpServlet {
 		//Sets the URL to upload the main image
 		BlobHelper blobHelper = BlobHelper.getInstance();
 		String uploadUrl = blobHelper.createUploadUrl();
-		request.setAttribute("uploadUrl", uploadUrl);
+		request.setAttribute("uploadUrl", uploadUrl);		
 		
-		//Sets the key for the main image if it exists
-		UserHelper userHelper = UserHelper.getInstance();	
-		String mainImageKey = userHelper.getMainImgUploadKey();
-		if(mainImageKey != null ){
-			request.setAttribute("mainImageKey", mainImageKey);
-			request.setAttribute("deleteMainImgPath", WebHelper.DELETE_MAIN_IMG_PATH  + mainImageKey);
-		}		
-		request.setAttribute("hasImage", mainImageKey != null);		
+		//Setting of the attributes required to work with the main image
+		WebImageHelper webImageHelper = WebImageHelper.getInstance();
+		webImageHelper.setImageAttributesInRequest(request, true);
 		
+		//TODO insert comment here
 		setAppPaths(request);
 		
 		//Home page is now generated

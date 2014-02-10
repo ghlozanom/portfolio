@@ -1,27 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-        <section class="section profile_section first odd" id="profile"> <a id="blog_page_link" href="blog-category-arhive.html"><span class="icon-pencil icon"></span><span class="label">Blog</span></a>
+        <section class="section profile_section first odd" id="profile"> <a id="blog_page_link" href="/blog"><span class="icon-pencil icon"></span><span class="label">Blog</span></a>
           <div class="section_header profile_section_header opened">
             <h2 class="section_title profile_section_title vis"><a href="#"><span class="icon icon-user"></span><span class="section_name">Profile</span></a><span class="section_icon"></span></h2>
             <div id="profile_header">
               <div id="profile_user">
-                <div id="profile_photo">
-                	<c:choose>
-                	<c:when test="${hasImage}">
-				  		<img src="/getBlobForKey?blobKey=${mainImageKey}" alt="Gabriel Lozano" />
-				  	</c:when>
-				  	<c:otherwise>
-				  		<img src="http://placehold.it/117x117" alt="Insert a Photo" />
-				  	</c:otherwise>
-				  	</c:choose> 
-                	<a href="#" id="editPhotoLink" >Edit Photo</a>              	
-                </div>
-                <div id="profile_name_area">
-                  <div id="profile_name">
-                    <h1 id="profile_title"><span class="firstname">Gabriel</span> <span class="lastname">Lozano</span></h1>
-                    <h4 id="profile_position">Software Engineer</h4>
-                  </div>                
-                </div>  
+                
+                <jsp:include page="/pages/profile/profile_name.jsp" />
+                 
                 <div id="editPhotoDiv" style="display: none; clear: both; padding-top: 20px; padding-bottom: 20px;"> 
 				  	<form action="${uploadUrl}" method="post" enctype="multipart/form-data">
 				  		<label for="description">Description:</label>
