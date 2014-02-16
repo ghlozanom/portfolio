@@ -1,6 +1,7 @@
 package com.gabloz.portfolio.web.servlet;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.gabloz.portfolio.common.helper.BlogHelper;
 import com.gabloz.portfolio.web.helper.WebHelper;
 import com.gabloz.portfolio.web.helper.WebImageHelper;
 
@@ -30,10 +32,18 @@ public class BlogServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		logger.log(Level.INFO, "Blog's doGet()");
-		
+
 		//Setting of the attributes required to work with the main image
 		WebImageHelper webImageHelper = WebImageHelper.getInstance();
 		webImageHelper.setImageAttributesInRequest(request, false);
+		
+		//Posts retrieved
+		String postRequested = request.getParameter(WebHelper.POST_REQUESTED);
+		String labels = request.getParameter(WebHelper.POST_LABELS);
+		BlogHelper blogHelper = BlogHelper.getInstance();
+		List<String[]> posts = blogHelper.getPosts(postRequested, labels);
+
+		request.setAttribute("posts", posts);
 		
 		//Blog page is now generated
 		RequestDispatcher jsp = request.getRequestDispatcher(WebHelper.BLOG_PAGE);

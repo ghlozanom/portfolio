@@ -41,7 +41,7 @@
           
           <!-- RESUME -->
           <section class="section resume_section even" id="resume">
-            <div id="resume_buttons"> <a target="_blank" id="resume_link" href="print.html"><span class="label">Print</span><span class="icon-print icon"></span></a> <a target="_blank" id="resume_link_download"><span class="label">Download</span><span class="icon-download icon"></span></a> </div>
+            <div id="resume_buttons"> <a id="resume_link" href="javascript: showInfoMessage('Coming soon!')"><span class="label">Print</span><span class="icon-print icon"></span></a> <a id="resume_link_download" href="javascript: showInfoMessage('Coming soon!')"><span class="label">Download</span><span class="icon-download icon"></span></a> </div>
             <div class="section_header resume_section_header">
               <h2 class="section_title resume_section_title"><a href="#"><span class="icon icon-align-left"></span><span class="section_name">Resume</span></a><span class="section_icon"></span></h2>
             </div>

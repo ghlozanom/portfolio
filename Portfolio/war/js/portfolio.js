@@ -60,6 +60,17 @@ function showSuccessMessage( successMessage ){
     
 }
 
+//Shows a given information message
+function showInfoMessage( successMessage ){
+	
+	noty({
+		text: successMessage,
+		layout: 'topCenter',
+		type: 'information'	
+	});
+    
+}
+
 
 
 

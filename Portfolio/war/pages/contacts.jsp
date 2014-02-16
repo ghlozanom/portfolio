@@ -14,14 +14,7 @@
                   <div class="profile_row website"> <span class="th">Website</span><span class="td"></span> </div>
                 </div>
               </div>
-              <div class="sidebar contact_sidebar">
-                <aside class="widget widget_qrcode_vcard" id="qrcode-vcard-widget-2">
-                  <h3 class="widget_title">VCARD</h3>
-                  <div class="widget_inner">
-                    <div class="qrcode"></div>
-                  </div>
-                </aside>
-              </div>
+
               <div class="contact_form">
                 <div class="contact_form_data">
                   <div class="sc_contact_form">

@@ -52,6 +52,10 @@ public class WebHelper {
 	public static final String CONTACT_PATH = "contactPath";
 
 	public static final String BLOG_PAGE = "/pages/blog.jsp";
+
+	public static final String POST_REQUESTED = "post";
+
+	public static final String POST_LABELS = "labels";
 	
 	/**
 	 * Returns a unique instance of this class (Singleton pattern)
