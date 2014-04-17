@@ -9,6 +9,10 @@
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
 <link rel="stylesheet" type="text/css" media="all" href="/style/style.css">
 <link rel="stylesheet" type="text/css" media="all" href="/style/responsive.css">
+
+<!-- Import of styles created for this application -->
+<link rel="stylesheet" type="text/css" media="all" href="style/portfolio.css">
+
 <!--[if lt IE 9]>
 	<script src="/js/html5.js" type="text/javascript"></script>
 <![endif]-->

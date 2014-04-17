@@ -10,7 +10,7 @@
 	  	</c:otherwise>
 	  	</c:choose> 
 	  	
-		<c:if test="${editImage}">
+		<c:if test="${editImage && authenticatedUser}">
 	  		<a href="#" id="editPhotoLink" >Edit Photo</a>
 	  	</c:if>	  	              	
     </div>

@@ -26,7 +26,7 @@ public class WebImageHelper {
 			request.setAttribute("mainImageKey", mainImageKey);
 			
 		}		
-		if( withImageEdit ){
+		if( withImageEdit && (Boolean)request.getAttribute(WebHelper.AUTHENTICATED_USER) ){
 			request.setAttribute("deleteMainImgPath", WebHelper.DELETE_MAIN_IMG_PATH  + mainImageKey);
 		}
 		request.setAttribute("hasImage", mainImageKey != null);

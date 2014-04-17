@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.gabloz.portfolio.common.exceptions.PortfolioBusinessException;
+import com.gabloz.portfolio.common.helper.MessageHelper;
 import com.gabloz.portfolio.model.Image;
 import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
@@ -19,6 +20,7 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.users.User;
 
 /**
  * Provides helper methods to work with user data
@@ -114,14 +116,22 @@ public class UserHelper {
 
 	/**
 	 * Removes, if there is one, the main Image from the datastore
+	 * @param user 
 	 * @param mainImgUploadKeyStr 
 	 * 
 	 * @throws IOException 
 	 * @throws PortfolioBusinessException 
 	 */
-	public void deleteMainImage(String mainImgUploadKeyStr) throws IOException, PortfolioBusinessException {
+	public void deleteMainImage(User user, String mainImgUploadKeyStr) throws IOException, PortfolioBusinessException {
 		
 		try {
+			
+			//Validates that there user calling this method is authenticated
+			if(user == null){
+				logger.log(Level.WARNING, "DeleteMainImage called from a non-authenticated user");
+				throw new PortfolioBusinessException(MessageHelper.USER_NOT_AUTHENTICATED);				
+			}
+			
 			List<Key> keysToDelete = new ArrayList<Key>();
 			Entity mainImgUpload;
 				mainImgUpload = datastoreService.get(KeyFactory.stringToKey(mainImgUploadKeyStr));

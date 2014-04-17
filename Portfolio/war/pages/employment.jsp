@@ -14,7 +14,7 @@
       <div class="post_body resume_post_body">
         <p>
             <ul>
-            	<li>Implementation and maintenance of existent software applications in the Java EE platform for an automotive company
+            	<li>Implementation and maintenance of existing software applications in the Java EE platform for an automotive company
              as well as for internal use.</li>
              	<li>Confirmation of new module requirements by reviewing its functionality, input data, and output requirements with 
              software analysts and clients.</li>

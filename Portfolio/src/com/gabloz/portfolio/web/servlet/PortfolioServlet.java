@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.gabloz.portfolio.common.helper.MessageHelper;
 import com.gabloz.portfolio.gae.helper.BlobHelper;
+import com.gabloz.portfolio.web.helper.UserWebHelper;
 import com.gabloz.portfolio.web.helper.WebHelper;
 import com.gabloz.portfolio.web.helper.WebImageHelper;
 
@@ -44,6 +45,9 @@ public class PortfolioServlet extends HttpServlet {
 		
 		checkErrorMessages(request);
 		checkConfirmationMessages(request);			
+		
+		//Setting in request if the user is authenticated
+		UserWebHelper.getInstance().setUserAuthenticated(request);
 
 		//Sets the URL to upload the main image
 		BlobHelper blobHelper = BlobHelper.getInstance();

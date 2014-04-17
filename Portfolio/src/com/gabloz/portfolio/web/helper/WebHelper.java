@@ -56,6 +56,10 @@ public class WebHelper {
 	public static final String POST_REQUESTED = "post";
 
 	public static final String POST_LABELS = "labels";
+
+	public static final String LOGOUT_URL = "/";
+
+	public static final String AUTHENTICATED_USER = "authenticatedUser";
 	
 	/**
 	 * Returns a unique instance of this class (Singleton pattern)

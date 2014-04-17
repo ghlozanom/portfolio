@@ -17,6 +17,7 @@ public class MessageHelper {
 	public static final String IMAGE_UPLOAD_SUCCESS = "img_upl";
 	public static final String MESSAGE_NOT_SENT = "msg_not_sent";
 	public static final String MESSAGE_SENT_SUCCESS = "msg_sent_succ";
+	public static final String USER_NOT_AUTHENTICATED = "usr_not_ath";
 
 	/**
 	 * Returns a unique instance of this class (Singleton pattern)
@@ -63,7 +64,10 @@ public class MessageHelper {
 		}	
 		if(MessageHelper.MESSAGE_NOT_SENT.equalsIgnoreCase(messageKey)){
 			return "Your message could not be sent. Please try again";
-		}			
+		}	
+		if(MessageHelper.USER_NOT_AUTHENTICATED.equalsIgnoreCase(messageKey)){
+			return "This operation can only be done by an authenticated user";
+		}		
 		return "No message for the key";	
 	}
 

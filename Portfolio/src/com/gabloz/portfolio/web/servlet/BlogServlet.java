@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.gabloz.portfolio.common.helper.BlogHelper;
+import com.gabloz.portfolio.web.helper.UserWebHelper;
 import com.gabloz.portfolio.web.helper.WebHelper;
 import com.gabloz.portfolio.web.helper.WebImageHelper;
 
@@ -36,6 +37,9 @@ public class BlogServlet extends HttpServlet {
 		//Setting of the attributes required to work with the main image
 		WebImageHelper webImageHelper = WebImageHelper.getInstance();
 		webImageHelper.setImageAttributesInRequest(request, false);
+		
+		//Setting in request if the user is authenticated
+		UserWebHelper.getInstance().setUserAuthenticated(request);
 		
 		//Posts retrieved
 		String postRequested = request.getParameter(WebHelper.POST_REQUESTED);

@@ -14,6 +14,7 @@ import com.gabloz.portfolio.common.helper.MessageHelper;
 import com.gabloz.portfolio.gae.helper.BlobHelper;
 import com.gabloz.portfolio.gae.helper.UserHelper;
 import com.gabloz.portfolio.model.Image;
+import com.gabloz.portfolio.web.helper.UserWebHelper;
 import com.gabloz.portfolio.web.helper.WebHelper;
 
 /**
@@ -47,7 +48,7 @@ public class MainImageServlet extends HttpServlet {
 			//at the end the application is sent to the main page
 			UserHelper userHelper = UserHelper.getInstance();
 			try {
-				userHelper.deleteMainImage(request.getParameter(WebHelper.KEY_PARAMETER_NAME));
+				userHelper.deleteMainImage(UserWebHelper.getInstance().getUser(), request.getParameter(WebHelper.KEY_PARAMETER_NAME));
 				//Sets an entity deleted with success message and redirects
 				webHelper.sendRedirectWithMessage(WebHelper.MAIN_PAGE_SERVLET_PATH,
 						response, WebHelper.SUCCESS, MessageHelper.IMG_DELETED_SUCCESSFULY);

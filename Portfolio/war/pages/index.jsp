@@ -34,7 +34,7 @@
   <div id="main" >
     <div class="content_area" id="primary">
       <div role="main" class="site_content" id="content">
-      
+      	
         <jsp:include page="/pages/profile.jsp" /> 
       
         <div id="mainpage_accordion_area"> 
@@ -85,7 +85,8 @@
       </div>
       <!-- #content --> 
     </div>
-    <!-- #primary --> 
+    <!-- #primary -->
+    
   </div>
   <!-- #main -->
   
