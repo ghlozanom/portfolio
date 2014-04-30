@@ -1,0 +1,31 @@
+<taglib version="2.0" xmlns="http://java.sun.com/xml/j2ee" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+
+	<tlib-version>2.0</tlib-version>
+	<uri>WebCommonFunctions</uri>
+	<function>
+		<name>checkboxChecked</name>
+		<function-class>com.gabloz.web.helper.CommonWebHelper</function-class>
+		<function-signature>
+			String isChecked(boolean)
+		</function-signature>
+	</function>
+	
+	<function>
+		<name>dateInDatepickerFormat</name>
+		<function-class>com.gabloz.web.helper.CommonWebHelper</function-class>
+		<function-signature>
+			String dateInDatepickerFormat(java.util.Date)
+		</function-signature>
+	</function>	
+	
+	<function>
+		<name>keyToString</name>
+		<function-class>com.gabloz.web.helper.CommonWebHelper</function-class>
+		<function-signature>
+			String keyToString(com.google.appengine.api.datastore.Key)
+		</function-signature>
+	</function>		
+	
+</taglib>

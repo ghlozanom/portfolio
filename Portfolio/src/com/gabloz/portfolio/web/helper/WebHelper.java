@@ -60,6 +60,20 @@ public class WebHelper {
 	public static final String LOGOUT_URL = "/";
 
 	public static final String AUTHENTICATED_USER = "authenticatedUser";
+
+	public static final String OPERATION = "op";
+
+	public static final String EDIT = "edit";
+
+	public static final String ID = "id";
+
+	public static final String VALUE = "value";
+
+	public static final String ADD = "add";
+
+	public static final String UPDATE = "update";
+
+	public static final String REMOVE = "remove";
 	
 	/**
 	 * Returns a unique instance of this class (Singleton pattern)

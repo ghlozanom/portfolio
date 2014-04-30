@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -12,11 +13,56 @@
 <link rel="stylesheet" type="text/css" media="all" href="style/style.css">
 <link rel="stylesheet" type="text/css" media="all" href="style/responsive.css">
 
+<link href="style/redmond/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+
 <!-- Import of styles created for this application -->
 <link rel="stylesheet" type="text/css" media="all" href="style/portfolio.css">
+
+<!-- Import of styles created for all my applications -->
+<link rel="stylesheet" type="text/css" media="all" href="style/gabloz.css">
+
 <!--[if lt IE 9]>
 	<script src="js/html5.js" type="text/javascript"></script>
 <![endif]-->
+
+<!-- connect js -->  
+<script type="text/javascript" src="js/jquery-1.10.2.js"></script> 
+<script type="text/javascript" src="js/jquery.flexslider.min.js"></script> 
+<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script> 
+<script type="text/javascript" src="js/jquery.isotope.min.js"></script> 
+<script type="text/javascript" src="js/jquery.cookie.js"></script> 
+<script type="text/javascript" src="js/mediaelement.min.js"></script> 
+<script type="text/javascript" src="js/jquery.qrcode-0.6.0.min.js"></script> 
+<script type="text/javascript" src="js/googlemap_init.js"></script> 
+<script type="text/javascript" src="js/jquery.easing.js"></script> 
+<script type="text/javascript" src="js/jquery.reject.js"></script> 
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+<script type="text/javascript" src="js/utils.js"></script> 
+<script type="text/javascript" src="js/lib.js"></script>
+<script type="text/javascript" src="js/portfolio.js"></script>
+
+<script type="text/javascript" src="js/noty/packaged/jquery.noty.packaged.min.js"></script>
+
+<script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery.tools.custom.js"></script> 
+
+<script>
+	jQuery(document).ready(function(){
+		<c:if test="${noImageSelected}">		
+		    noImageSelected();
+		</c:if> 
+		
+		<c:if test="${existsErrorMessage}">
+			showErrorMessage('${errorMessage}');		
+		</c:if>
+	
+		<c:if test="${existSuccessMessage}">
+			showSuccessMessage('${successMessage}');		
+		</c:if>										
+		   
+	});
+</script>
+
 </head>
 <body class="home blog dark">
 <div class="switherHead"></div>
@@ -96,41 +142,7 @@
 </div>
 <!-- #page --> 
 
-<!-- connect js -->  
-<script type="text/javascript" src="js/jquery.min.js"></script> 
-<script type="text/javascript" src="js/jquery.tools.custom.js"></script> 
-<script type="text/javascript" src="js/jquery.flexslider.min.js"></script> 
-<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script> 
-<script type="text/javascript" src="js/jquery.isotope.min.js"></script> 
-<script type="text/javascript" src="js/jquery.cookie.js"></script> 
-<script type="text/javascript" src="js/mediaelement.min.js"></script> 
-<script type="text/javascript" src="js/jquery.qrcode-0.6.0.min.js"></script> 
-<script type="text/javascript" src="js/googlemap_init.js"></script> 
-<script type="text/javascript" src="js/jquery.easing.js"></script> 
-<script type="text/javascript" src="js/jquery.reject.js"></script> 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
-<script type="text/javascript" src="js/utils.js"></script> 
-<script type="text/javascript" src="js/lib.js"></script>
-<script type="text/javascript" src="js/portfolio.js"></script>
 
-<script type="text/javascript" src="js/noty/packaged/jquery.noty.packaged.min.js"></script>
-
-<script>
-	jQuery(document).ready(function(){
-		<c:if test="${noImageSelected}">		
-		    noImageSelected();
-		</c:if> 
-		
-		<c:if test="${existsErrorMessage}">
-			showErrorMessage('${errorMessage}');		
-		</c:if>
-	
-		<c:if test="${existSuccessMessage}">
-			showSuccessMessage('${successMessage}');		
-		</c:if>										
-		   
-	});
-</script>
 
 
 </body>

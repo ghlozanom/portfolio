@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.gabloz.description.common.helper.DescriptionMessageHelper;
 import com.gabloz.portfolio.common.helper.MessageHelper;
 import com.gabloz.portfolio.gae.helper.BlobHelper;
+import com.gabloz.portfolio.web.helper.EmploymentWebHelper;
 import com.gabloz.portfolio.web.helper.UserWebHelper;
 import com.gabloz.portfolio.web.helper.WebHelper;
 import com.gabloz.portfolio.web.helper.WebImageHelper;
@@ -58,6 +60,9 @@ public class PortfolioServlet extends HttpServlet {
 		WebImageHelper webImageHelper = WebImageHelper.getInstance();
 		webImageHelper.setImageAttributesInRequest(request, true);
 		
+		//Setting of the employees
+		EmploymentWebHelper.getInstance().getEmployment(request);
+		
 		//TODO insert comment here
 		setAppPaths(request);
 		
@@ -80,9 +85,16 @@ public class PortfolioServlet extends HttpServlet {
 		
 		String messageKey = request.getParameter(WebHelper.SUCCESS_PARAMETER_PATH);
 		if( messageKey != null ){
-			request.setAttribute(WebHelper.EXISTS_SUCCESS_MESSAGE, true);
-			request.setAttribute(WebHelper.SUCCESS_MESSAGE, 
-					MessageHelper.getInstance().getMessageForKey(messageKey) );
+			
+			if(messageKey.startsWith(DescriptionMessageHelper.DESC_PREFIX)){
+				request.setAttribute(WebHelper.EXISTS_SUCCESS_MESSAGE, true);
+				request.setAttribute(WebHelper.SUCCESS_MESSAGE, 
+						DescriptionMessageHelper.getInstance().getMessageForKey(messageKey) );
+			}else{
+				request.setAttribute(WebHelper.EXISTS_SUCCESS_MESSAGE, true);
+				request.setAttribute(WebHelper.SUCCESS_MESSAGE, 
+						MessageHelper.getInstance().getMessageForKey(messageKey) );				
+			}
 		}		
 		
 	}

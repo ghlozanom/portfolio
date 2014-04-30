@@ -18,6 +18,15 @@ public class MessageHelper {
 	public static final String MESSAGE_NOT_SENT = "msg_not_sent";
 	public static final String MESSAGE_SENT_SUCCESS = "msg_sent_succ";
 	public static final String USER_NOT_AUTHENTICATED = "usr_not_ath";
+	public static final String WORK_CREATED_WITH_SUCCESS = "wrk_crt_suc";
+	public static final String CURRENT_WORK_EXISTS = "cur_wrk_ext";
+	public static final String WORK_UPDATED_SUCCESS = "wrk_upd_suc";
+	public static final String INITIAL_DATE_BEFORE_PREVIOUS_WORK_FINAL_DATE = "init_dat_bef_prev_wfd";
+	public static final String FINAL_DATE_AFTER_NEXT_WORK_INITIAL_DATE = "fin_dat_aft_nex_wid";
+	public static final String FINAL_DATE_NOT_AFTER_INIT_DATE = "fin_dat_naf_idt";
+	public static final String FINAL_DATE_CAN_NOT_EMPTY = "fin_dat_cnt_ept";
+	public static final String INIT_DATE_NOT_BEFORE_INITIAL_DATE_CURRENT_WORK = "init_date_nbf_idt_cwk";
+	public static final String WORK_REMOVED_SUCCESS = "wrk_rem_suc";
 
 	/**
 	 * Returns a unique instance of this class (Singleton pattern)
@@ -67,6 +76,35 @@ public class MessageHelper {
 		}	
 		if(MessageHelper.USER_NOT_AUTHENTICATED.equalsIgnoreCase(messageKey)){
 			return "This operation can only be done by an authenticated user";
+		}	
+		if(MessageHelper.WORK_CREATED_WITH_SUCCESS.equalsIgnoreCase(messageKey)){
+			return "This job was created successfully";
+		}	
+		if(MessageHelper.WORK_UPDATED_SUCCESS.equalsIgnoreCase(messageKey)){
+			return "This job was updated successfully";
+		}		
+		if(MessageHelper.CURRENT_WORK_EXISTS.equalsIgnoreCase(messageKey)){
+			return "There is already a current job registered";
+		}
+		if(MessageHelper.INITIAL_DATE_BEFORE_PREVIOUS_WORK_FINAL_DATE.equalsIgnoreCase(messageKey)){
+			return "This job was updated successfully but with a warning: "
+					+ "The initial date is before the final date of the previous work";
+		}	
+		if(MessageHelper.FINAL_DATE_AFTER_NEXT_WORK_INITIAL_DATE.equalsIgnoreCase(messageKey)){
+			return "This job was updated successfully but with a warning: "
+					+ "The final date is after the initial date of the next work";
+		}		
+		if(MessageHelper.FINAL_DATE_NOT_AFTER_INIT_DATE.equalsIgnoreCase(messageKey)){
+			return "Final date should be after the initial date";
+		}	
+		if(MessageHelper.FINAL_DATE_CAN_NOT_EMPTY.equalsIgnoreCase(messageKey)){
+			return "Final date can not be empty unless it is the current one";
+		}
+		if(MessageHelper.INIT_DATE_NOT_BEFORE_INITIAL_DATE_CURRENT_WORK.equalsIgnoreCase(messageKey)){
+			return "The initial date must be before the initial date of the current work";
+		}
+		if(MessageHelper.WORK_REMOVED_SUCCESS.equalsIgnoreCase(messageKey)){
+			return "This work was removed successfully";
 		}		
 		return "No message for the key";	
 	}

@@ -16,3 +16,26 @@
 .loginLink {
 	padding-top: 20px;
 }
+
+.validateTips { border: 1px solid transparent; padding: 0.3em; }
+
+
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+	border: 1px solid #fcefa1;
+	background: #fbf9ee url(images/ui-bg_glass_55_fbf9ee_1x400.png) 50% 50% repeat-x;
+	color: #363636;
+}
+
+.sortable { list-style-type: none; margin: 0; padding: 0;  }
+.sortable li span .handle  { position: absolute; margin-left: -1.3em; }
+
+.ui-icon {
+
+	margin: 0 4px;
+	display:inline-block;
+	
+}
+
+		

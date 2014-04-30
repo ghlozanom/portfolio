@@ -54,5 +54,25 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	  <servlet-name>BlogServlet</servlet-name>
 	  <url-pattern>/blog</url-pattern>
 	</servlet-mapping> 	
+	
+	<!-- Employment servlet -->  
+	<servlet>
+	  <servlet-name>EmploymentServlet</servlet-name>
+	  <servlet-class>com.gabloz.portfolio.web.servlet.EmploymentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>EmploymentServlet</servlet-name>
+	  <url-pattern>/employment</url-pattern>
+	</servlet-mapping> 	
+	
+	<!-- Description servlet -->  
+	<servlet>
+	  <servlet-name>DescriptionServlet</servlet-name>
+	  <servlet-class>com.gabloz.description.web.servlet.DescriptionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>DescriptionServlet</servlet-name>
+	  <url-pattern>/description</url-pattern>
+	</servlet-mapping> 		
 
 </web-app>
